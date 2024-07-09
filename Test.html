@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <title>image display</title>
+
+        <script>
+function displayImages() {
+    const userInput = document.getElementById('image').value;
+    const imageContainer = document.getElementById('imageContainer');
+    const errorMessage = document.getElementById('errorMessage');
+
+    imageContainer.innerHTML = 'image';
+    errorMessage.innerHTML = 'invalid value';
+
+    if (userInput === '4') {
+        const images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg']; // Replace with actual image paths
+
+        images.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.width = 100;
+            img.height = 100; 
+            imageContainer.appendChild(img);
+        });
+    } else {
+        errorMessage.innerHTML = 'Invalid value!';
+    }
+}
+
+        </script>
+
+
+    </head>
+   <body>
+    <h1>Viewer</h1>
+    <form>
+        <label>Number of images:</label>
+        <input type="number" id="image" min="1" max="4" placeholder="4"></input> 
+       <button  onclick="displayImages()">display images</button>
+       <br>
+       <div id="imageContainer">Images</div>
+    <div id="errorMessage" style="color: red;"></div>
+        <img src="image1.jpg">
+        
+    </form>
+   </body>
+
+</html>
